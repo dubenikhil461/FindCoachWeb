@@ -1,8 +1,10 @@
 <template>
-    <AppHeader />
-    <h3 class="text-yellow-500">work in progress</h3>
+    <QLayout>
+        <QPageContainer>
+            <router-view />
+        </QPageContainer>
+    </QLayout>
 </template>
 <script setup>
-import AppHeader from './layout/AppHeader.vue';
 
 </script>
