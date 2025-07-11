@@ -30,12 +30,11 @@
             <div v-if="sendotp" key="otp-modal"
                 class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
                 <QCardSection>
-                    <FormKit type="form" @submit="verifyotp" :classes="{
+                    <FormKit type="form" @submit="verifyotp" :actions="false" :classes="{
                         form: 'flex flex-col gap-4',
-                        actions: 'mt-4 flex justify-center',
-                        submit: 'bg-blue-600 text-white px-4 py-2 rounded font-semibold transition-colors duration-200 hover:bg-blue-700'
                     }" required>
                         <FormKit type="text" label="Enter OTP" v-model="otp" required />
+                        <QBtn type="submit" outline color="green" label="Verify OTP" />
                     </FormKit>
                 </QCardSection>
             </div>
