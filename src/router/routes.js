@@ -5,7 +5,7 @@ const router = createRouter({
     routes: [
         {
             name: 'register',
-            path: '/register',
+            path: '/',
             component: () => import('@/components/Register.vue'),
             meta: {
                 title: 'Register - MyApp',
@@ -21,40 +21,40 @@ const router = createRouter({
                 description: 'Login to your MyApp account to access personalized features and content.',
             }
         },
-        {
-            name: 'home',
-            path: '/',
-            component: () => import('@/components/Home.vue'),
-            meta: {
-                title: 'Home - MyApp',
-                description: 'Find your perfect coach and start your journey to success.',
-            }
-        },
-        {
-            name: 'dashboard',
-            path: '/@me/dashboard',
-            component: () => import('@/components/Dashboard.vue'),
-            meta: {
-                title: 'Dashboard - MyApp',
-                description: 'Manage your account and settings.',
-            }
-        },
+        // {
+        //     name: 'home',
+        //     path: '/',
+        //     component: () => import('@/components/Home.vue'),
+        //     meta: {
+        //         title: 'Home - MyApp',
+        //         description: 'Find your perfect coach and start your journey to success.',
+        //     }
+        // },
+        // {
+        //     name: 'dashboard',
+        //     path: '/@me/dashboard',
+        //     component: () => import('@/components/Dashboard.vue'),
+        //     meta: {
+        //         title: 'Dashboard - MyApp',
+        //         description: 'Manage your account and settings.',
+        //     }
+        // },
     ]
 })
 
-router.beforeEach((to, from, next) => {
-    const userstore = useUserStore()
-    // Allow access to home page ('/') for everyone
-    if (to.path === '/') {
-        return next()
-    }
-    // For all other routes, require authentication
-    if (userstore.IsLoggedIn) {
-        return next()
-    } else {
-        // If not authenticated, redirect to home page
-        return next({ path: '/' })
-    }
-})
+// router.beforeEach((to, from, next) => {
+//     const userstore = useUserStore()
+//     // Allow access to home page ('/') for everyone
+//     if (to.path === '/') {
+//         return next()
+//     }
+//     // For all other routes, require authentication
+//     if (userstore.IsLoggedIn) {
+//         return next()
+//     } else {
+//         // If not authenticated, redirect to home page
+//         return next({ path: '/' })
+//     }
+// })
 
 export default router;
